@@ -105,6 +105,22 @@ html{scroll-behavior:smooth}
 @media(max-width:600px){.sp-stats{grid-template-columns:minmax(0,1fr);gap:18px}}
 </style>
 <style>
+.sp-guide{width:var(--s-content);margin:clamp(40px,5vw,72px) auto 0;padding:clamp(24px,3vw,40px);border-radius:18px;background:#f7f6ff;border:1.5px dashed #6b5cff}
+body:not(.ann) .sp-guide{display:none}
+.sp-guide h2{font:400 clamp(28px,2.8vw,40px)/1.08 var(--s-display);letter-spacing:-.03em;margin:14px 0 12px}
+.sp-gintro{font-size:16px;line-height:1.55;color:var(--s-body);max-width:46em;margin:0 0 28px}
+.sp-gcards{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.sp-gcard{display:flex;flex-direction:column;background:#fff;border:1px solid var(--s-line);border-radius:14px;padding:20px 22px 18px}
+.sp-gnum{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#6b5cff;color:#fff;font:500 12px/1 var(--s-sans)}
+.sp-gcard h3{font:400 21px/1.2 var(--s-display);letter-spacing:-.02em;margin:14px 0 12px}
+.sp-gcard dl{margin:0 0 16px;flex:1}
+.sp-gcard dt{font:500 11px/1 var(--s-sans);letter-spacing:.09em;text-transform:uppercase;color:var(--s-muted);margin:14px 0 6px}
+.sp-gcard dt:first-child{margin-top:0}
+.sp-gcard dd{margin:0;font-size:14px;line-height:1.5;color:var(--s-body)}
+.sp-gjump{font-size:14px;font-weight:500;color:var(--s-deep)}
+@media(max-width:1100px){.sp-gcards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.sp-gcards{grid-template-columns:minmax(0,1fr)}}
+[id^="f"]{scroll-margin-top:40px}
 .sp-short{list-style:none;padding:0;margin:0 0 24px;display:grid;gap:10px}
 .sp-short li{position:relative;padding-left:20px;font-size:15px;line-height:1.5;color:var(--s-body)}
 .sp-short li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:1px;background:var(--s-ink)}
@@ -147,9 +163,9 @@ body.ann .sp-toc[data-f]::after{top:-26px}
 <main id="main" class="sp">
 <section class="sp-hero" aria-labelledby="sp-title">
   <nav class="sp-crumbs" aria-label="Breadcrumb"><a href="../index.html#wall">Blog</a><span aria-hidden="true">/</span><a href="../index.html#wall">Case Studies</a></nav>
-  <div class="sp-hcard" data-f="1 · Hero above the fold · audit: first screen mostly black">
+  <div class="sp-hcard" id="f1" data-f="1 · Hero above the fold · audit: first screen mostly black">
     <div class="sp-htext">
-      <span class="sp-meta" data-f="2 · Tag next to date"><span class="sp-tag">Case Studies</span><i></i>Jul 29, 2026<i></i>3 min read</span>
+      <span class="sp-meta" id="f2" data-f="2 · Tag next to date"><span class="sp-tag">Case Studies</span><i></i>Jul 29, 2026<i></i>3 min read</span>
       <h1 id="sp-title">How Onafriq is modernizing treasury operations across Africa with stablecoins</h1>
       <p class="sp-dek">How Onafriq uses Privy to help businesses move value across Africa with greater speed, transparency, and efficiency.</p>
       <div class="sp-by"><img src="../assets/ext/5bae41b4d6ac.webp" alt=""><div><b>Debbie Soon</b><span>Customer stories</span></div></div>
@@ -157,9 +173,15 @@ body.ann .sp-toc[data-f]::after{top:-26px}
     <div class="sp-himg"><img src="../assets/img/U6aeVkcNhIxSpXUpZozhtFCHsU.png" alt="Onafriq and Privy"></div>
   </div>
 </section>
+<section class="sp-guide" aria-labelledby="guide-t">
+  <p class="sp-label">Feature guide</p>
+  <h2 id="guide-t">Every post-page fix, in one story</h2>
+  <p class="sp-gintro">This is Privy’s own Onafriq customer story with the post-page fixes from our UX audit built in. Each purple tag on the page has a number that matches a card below. The article text is Privy’s; the summary bullets and CTA copy are ours. To see the page the way a reader would, use “Hide feature tags” in the bar at the bottom left.</p>
+  <ol class="sp-gcards"><li class="sp-gcard"><span class="sp-gnum">1</span><h3>Hero card above the fold</h3><dl><dt>Problem</dt><dd>The live post page opens on a mostly black screen, the title starts below the fold, and the top looks different on every screen size.</dd><dt>What we changed</dt><dd>Title, summary, author, and cover art sit together in one gradient card that fits on a laptop’s first screen. It uses the same gradient and corners as the landing page hero and spotlight, so the blog feels like one system.</dd><dt>Based on</dt><dd>The featured-post hero from the competitor review (Stripe’s blog was the reference).</dd><dt>On a phone</dt><dd>The cover art moves on top and the text stacks below it.</dd></dl><a class="sp-gjump" href="#f1">See it on the page ↓</a></li><li class="sp-gcard"><span class="sp-gnum">2</span><h3>Tag next to the date</h3><dl><dt>Problem</dt><dd>Cards had the tag stacked above the date, plus an avatar and author role the team agreed weren’t needed.</dd><dt>What we changed</dt><dd>One line: category, date, read time. The read time tells people how long the post takes before they commit. Category names match Privy’s existing labels word for word.</dd><dt>Based on</dt><dd>The team’s card decision from the 11/3 design sync: drop the avatar and role, keep the tag beside the date.</dd><dt>On a phone</dt><dd>Same line. It wraps if the screen is narrow.</dd></dl><a class="sp-gjump" href="#f2">See it on the page ↓</a></li><li class="sp-gcard"><span class="sp-gnum">3</span><h3>Sticky table of contents</h3><dl><dt>Problem</dt><dd>No table of contents or sidebar, so long posts give readers no way to see what’s coming or jump ahead.</dd><dt>What we changed</dt><dd>The section list stays in view while you scroll and highlights the section you’re in. Every entry is a jump link, and “All posts” takes you back to the gallery.</dd><dt>Based on</dt><dd>Sticky tables of contents on post pages came up across the competitor review.</dd><dt>On a phone</dt><dd>It turns into a boxed list at the top of the post and stops following you, so it doesn’t cover the text.</dd></dl><a class="sp-gjump" href="#f3">See it on the page ↓</a></li><li class="sp-gcard"><span class="sp-gnum">4</span><h3>Summary box</h3><dl><dt>Problem</dt><dd>Customer story results were buried in paragraphs, with no callouts.</dd><dt>What we changed</dt><dd>Three numbers, a three-line short version, and the stack, all before the story starts. A buyer gets the point in ten seconds. The short version also gives AI agents, which Privy confirmed as an audience, a clean summary to pick up.</dd><dt>Based on</dt><dd>Customer story summary boxes from the competitor review (quote, result, summary).</dd><dt>On a phone</dt><dd>The numbers stack into one column.</dd></dl><a class="sp-gjump" href="#at-a-glance">See it on the page ↓</a></li><li class="sp-gcard"><span class="sp-gnum">5</span><h3>Pull quote</h3><dl><dt>Problem</dt><dd>Long blocks of text with no pull quotes or callouts.</dd><dt>What we changed</dt><dd>One line from the story, set large, breaks up the first long section. The rule: pull a line from the article itself, never write a new one.</dd><dt>Based on</dt><dd>Standard editorial pattern. The audit flagged its absence.</dd><dt>On a phone</dt><dd>Same treatment, smaller type.</dd></dl><a class="sp-gjump" href="#f5">See it on the page ↓</a></li><li class="sp-gcard"><span class="sp-gnum">6</span><h3>Customer quote callout</h3><dl><dt>Problem</dt><dd>On the live page, the Onafriq quote is formatted as a heading, so it reads like a section title and shows up wrong in the page outline.</dd><dt>What we changed</dt><dd>The quote gets its own card with the speaker’s name and title under it, in the hero’s gradient. It’s the one spot where the customer talks, so it should look different from Privy’s voice.</dd><dt>Based on</dt><dd>The quote callout from the competitor review’s customer story pattern.</dd><dt>On a phone</dt><dd>Full width, same card.</dd></dl><a class="sp-gjump" href="#f6">See it on the page ↓</a></li><li class="sp-gcard"><span class="sp-gnum">7</span><h3>Status callout</h3><dl><dt>Problem</dt><dd>The one fact a buyer checks first, whether this is live, was the opening line of the last section.</dd><dt>What we changed</dt><dd>A “Where it stands” box pulls it out. The same box works on any post for availability, pricing, or requirements.</dd><dt>Based on</dt><dd>The audit’s “results buried in paragraphs” finding, applied to status.</dd><dt>On a phone</dt><dd>Full width, same box.</dd></dl><a class="sp-gjump" href="#f7">See it on the page ↓</a></li><li class="sp-gcard"><span class="sp-gnum">8</span><h3>CTA matched to the post</h3><dl><dt>Problem</dt><dd>Posts end with no CTA, signup, or “get in touch.”</dd><dt>What we changed</dt><dd>The ask matches the story: a treasury post asks treasury teams to talk to sales, with a second button for developers. A newsletter was dropped because the audience is too mixed (developers, PMs, enterprise buyers). The navbar’s login button scrolls away, so the end of the post still needs its own ask.</dd><dt>Based on</dt><dd>CTAs matched to post content, from the competitor review. Newsletter vs. CTA was settled in the 11/3 sync.</dd><dt>On a phone</dt><dd>Text first, buttons full row, art below.</dd></dl><a class="sp-gjump" href="#f8">See it on the page ↓</a></li><li class="sp-gcard"><span class="sp-gnum">9</span><h3>Keep reading</h3><dl><dt>Problem</dt><dd>Posts dead-end, with no next step.</dd><dt>What we changed</dt><dd>Three related posts picked by topic (treasury, business accounts, payroll), using the same card as the gallery: no avatar, tag next to the date.</dd><dt>Based on</dt><dd>The audit’s missing next-step prompts.</dd><dt>On a phone</dt><dd>Cards stack into one column.</dd></dl><a class="sp-gjump" href="#f9">See it on the page ↓</a></li></ol>
+</section>
 
 <div class="sp-body">
-  <aside class="sp-toc" aria-label="On this page" data-f="3 · Sticky contents · audit: no TOC">
+  <aside class="sp-toc" aria-label="On this page" id="f3" data-f="3 · Sticky contents · audit: no TOC">
     <p class="sp-label">On this page</p>
     <ol><li><a href="#at-a-glance">At a glance</a></li><li><a href="#bringing-stablecoins-into-treasury-operations">Bringing stablecoins into treasury operations</a></li><li><a href="#building-with-privy">Building with Privy</a></li><li><a href="#from-treasury-management-to-customer-payments">From treasury management to customer payments</a></li><li><a href="#whats-next">What's next</a></li></ol>
     <a class="sp-back" href="../index.html#wall">← All posts</a>
@@ -189,22 +211,22 @@ body.ann .sp-toc[data-f]::after{top:-26px}
 <p>Treasury teams must manage liquidity across markets, coordinate settlement between counterparties, and navigate a patchwork of payment rails, currencies, and financial institutions. While digital payments have expanded significantly across Africa, cross-border fund movement can still involve multiple intermediaries and operational handoffs.</p>
 <p>Stablecoins offer a simpler approach, helping businesses move value more efficiently, improve settlement speed, and gain greater visibility into the flow of funds across their operations.</p>
 <p>For Onafriq, that presented an opportunity to modernize treasury management and simplify how capital moves throughout its network.</p>
-<blockquote class="sp-pull" data-f="5 · Pull quote · audit: long text blocks"><p>For payments companies operating across multiple countries, moving money is often more complicated than it appears.</p></blockquote>
+<blockquote class="sp-pull" id="f5" data-f="5 · Pull quote · audit: long text blocks"><p>For payments companies operating across multiple countries, moving money is often more complicated than it appears.</p></blockquote>
 <h2 id="building-with-privy">Building with Privy</h2><p>To support its stablecoin strategy, Onafriq selected Privy as the wallet infrastructure layer for its treasury operations.</p>
 <p>The team moved quickly from integration to production, using Privy's programmable wallets to manage treasury balances and settlement flows across the business.</p>
 <p>Privy's native integrations across the stablecoin ecosystem also help simplify the broader settlement stack. Through connections to providers such as Bridge today, and additional liquidity and off-ramp partners over time, Onafriq can continue expanding and optimizing how money moves across its network.</p>
 <p>Rather than stitching together multiple providers and maintaining wallet infrastructure internally, Onafriq can focus on delivering payment infrastructure while building on a foundation designed to scale alongside its business.</p>
-<figure class="sp-quote" data-f="6 · Customer quote · audit: no callouts in stories"><blockquote><p>“At Onafriq, we keep investing in technology that makes payments faster and more accessible. Privy gives us a building block for faster settlement and better liquidity management, which serves our goal of ensuring Africa's payment ecosystem benefits securely and in line with regulatory frameworks.”</p></blockquote><figcaption><b>Luke Kyohere</b><span>Group Chief Product and Innovation Officer, Onafriq</span></figcaption></figure><h2 id="from-treasury-management-to-customer-payments">From treasury management to customer payments</h2><p>Today, Onafriq uses Privy to support treasury management and settlement workflows across its business.</p>
+<figure class="sp-quote" id="f6" data-f="6 · Customer quote · audit: no callouts in stories"><blockquote><p>“At Onafriq, we keep investing in technology that makes payments faster and more accessible. Privy gives us a building block for faster settlement and better liquidity management, which serves our goal of ensuring Africa's payment ecosystem benefits securely and in line with regulatory frameworks.”</p></blockquote><figcaption><b>Luke Kyohere</b><span>Group Chief Product and Innovation Officer, Onafriq</span></figcaption></figure><h2 id="from-treasury-management-to-customer-payments">From treasury management to customer payments</h2><p>Today, Onafriq uses Privy to support treasury management and settlement workflows across its business.</p>
 <p>Over time, the same infrastructure could be extended beyond internal operations to support customer-facing payment flows. The wallets and settlement infrastructure powering treasury operations today could also be used to facilitate payouts, collections, and cross-border transactions for businesses moving money into and across Africa.</p>
 <p>By starting with treasury operations, Onafriq is establishing the infrastructure needed to support stablecoin-powered payments at a broader scale.</p>
-<h2 id="whats-next">What's next</h2><aside class="sp-callout" data-f="7 · Status callout · audit: results buried"><b>Where it stands</b><p>The integration is already in production and progressing through a phased rollout ahead of broader availability.</p></aside>
+<h2 id="whats-next">What's next</h2><aside class="sp-callout" id="f7" data-f="7 · Status callout · audit: results buried"><b>Where it stands</b><p>The integration is already in production and progressing through a phased rollout ahead of broader availability.</p></aside>
 <p>For Onafriq, stablecoins represent an opportunity to simplify treasury management, improve settlement efficiency, and reduce the complexity of moving money across borders.</p>
 <p>As adoption continues to grow, the company is building infrastructure that can support both internal treasury operations and future payment flows, helping businesses move value across Africa with greater speed, transparency, and efficiency.</p>
 
   </article>
 </div>
 
-<section class="sp-cta" aria-labelledby="cta-t" data-f="8 · CTA matched to the post · audit: no CTA or get in touch">
+<section class="sp-cta" aria-labelledby="cta-t" id="f8" data-f="8 · CTA matched to the post · audit: no CTA or get in touch">
   <div class="sp-cta-in">
     <div>
       <h2 id="cta-t"><em>Moving money across markets?</em><br>Talk to our team</h2>
@@ -215,7 +237,7 @@ body.ann .sp-toc[data-f]::after{top:-26px}
   </div>
 </section>
 
-<section class="sp-related" aria-labelledby="rel-t" data-f="9 · Keep reading · audit: no next step">
+<section class="sp-related" aria-labelledby="rel-t" id="f9" data-f="9 · Keep reading · audit: no next step">
   <div class="sp-rhead"><h2 id="rel-t"><em>Keep</em> reading</h2><a href="../index.html#wall">View all posts <span class="arrow">→</span></a></div>
   <div class="sp-cards"><a class="sp-card" href="privy-treasury-management-for-onchain-capital.html"><div class="sp-art"><img src="../assets/img/Q311Lsne14IBqfTnz5Iya5w3sk.png" alt="" loading="lazy"></div><div class="sp-cbody"><h3>Introducing Privy Treasury Management</h3><span class="sp-meta"><span class="sp-tag">Product and Engineering</span><i></i>Sep 17, 2026</span></div></a><a class="sp-card" href="building-global-business-accounts-with-altitude.html"><div class="sp-art"><img src="../assets/img/aG8qiSMinFWI31BV4Gu5V4i3bk.png" alt="" loading="lazy"></div><div class="sp-cbody"><h3>Building global, modern business accounts with Altitude</h3><span class="sp-meta"><span class="sp-tag">Case Studies</span><i></i>Oct 27, 2026</span></div></a><a class="sp-card" href="building-enterprise-payroll-with-zebec.html"><div class="sp-art"><img src="../assets/img/1f3k1SAwSPLjc732JTIow0563Y.png" alt="" loading="lazy"></div><div class="sp-cbody"><h3>Building enterprise payroll with Zebec</h3><span class="sp-meta"><span class="sp-tag">Case Studies</span><i></i>Sep 2, 2026</span></div></a></div>
 </section>
